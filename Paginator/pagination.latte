@@ -1,0 +1,33 @@
+{if $paginator->pageCount > 1}
+<div class="text-center">
+    <ul class="pagination">
+
+        {if $paginator->isFirst()}
+            <li class="disabled"><a href="#">« {_'Previous'}</a></li>
+        {else}
+            <li><a href="{plink this, (expand) ['page' => $paginator->page - 1]}" rel="prev">« {_'Previous'}</a></li>
+        {/if}
+
+        {foreach $steps as $step}
+
+            {if $step == $paginator->page}
+                <li class="disabled"><a href="#">{$step}</a></li>
+            {else}
+                <li><a href="{plink this, (expand) ['page' => $step]}" {if $step < $paginator->page}rel="prev"{else}rel="next"{/if}>{$step}</a></li>
+            {/if}
+
+            {if $iterator->nextValue > $step + 1}
+                <li class="disabled"><a href="#">…</a></li>
+            {/if}
+
+        {/foreach}
+
+        {if $paginator->isLast()}
+            <li class="disabled"><a href="#">{_'Next'} »</a></li>
+        {else}
+            <li><a href="{plink this, 'page' => $paginator->page + 1}" rel="next">{_'Next'} »</a></li>
+        {/if}
+
+    </ul>
+</div>
+{/if}
