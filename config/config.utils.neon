@@ -1,2 +1,3 @@
 services:
 	- Wame\Utils\CacheManager
+	- Wame\Utils\HttpRequest
