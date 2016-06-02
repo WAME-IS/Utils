@@ -4,7 +4,7 @@ namespace Wame\Utils;
 
 use Nette\Utils\Strings as NStrings;
 
-class Strings
+class Strings extends NStrings
 {
 	/**
 	 * Truncate string
@@ -37,7 +37,7 @@ class Strings
 	 */
     static function dashesToCamelCase($string, $capitalizeFirstCharacter = false) 
     {
-        $str = str_replace(' ', '', ucwords(str_replace('-', ' ', NStrings::webalize($string))));
+        $str = str_replace(' ', '', ucwords(str_replace('-', ' ', self::webalize($string))));
 
         if (!$capitalizeFirstCharacter) {
             $str[0] = strtolower($str[0]);
@@ -58,16 +58,6 @@ class Strings
 		$reflect = new \ReflectionClass($namespace);
 		
 		return $reflect->getShortName();
-	}
-    
-	static function startsWith($haystack, $needle) {
-		// search backwards starting from haystack length characters from the end
-		return $needle === "" || strrpos($haystack, $needle, -strlen($haystack)) !== false;
-	}
-
-	static function endsWith($haystack, $needle) {
-		// search forward starting from end minus needle length characters
-		return $needle === "" || (($temp = strlen($haystack) - strlen($needle)) >= 0 && strpos($haystack, $needle, $temp) !== false);
 	}
 	
 }
