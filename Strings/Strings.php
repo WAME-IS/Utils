@@ -51,13 +51,20 @@ class Strings extends NStrings
 	 * Get class name from namespace
 	 * 
 	 * @param string $namespace
+	 * @param boolean $capitalizeFirstCharacter
 	 * @return string
 	 */
-	static function getClassName($namespace)
+	static function getClassName($namespace, $capitalizeFirstCharacter = true)
 	{
 		$reflect = new \ReflectionClass($namespace);
 		
-		return $reflect->getShortName();
+		$className = $reflect->getShortName();
+		
+		if (!$capitalizeFirstCharacter) {
+            $className[0] = strtolower($className[0]);
+        }
+		
+		return $className;
 	}
 	
 }
