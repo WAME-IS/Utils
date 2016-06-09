@@ -22,9 +22,16 @@ class HttpRequest
 		return $this->request;
 	}
 	
+	
 	public function getParameter($name)
 	{
 		return $this->getRequest()->getParameter($name);
+	}
+	
+	
+	public function getParameters()
+	{
+		return $this->getRequest()->getParameters();
 	}
 
 }
