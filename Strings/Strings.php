@@ -66,5 +66,13 @@ class Strings extends NStrings
 		
 		return $className;
 	}
+    
+    
+    static function parseTemplate($template, $parameters)
+    {
+        return \Nette\Utils\Strings::replace($template, '!\{\{(\w+)\}\}!', function($m) use($parameters) {
+            return $parameters[$m[1]];
+        });
+    }
 	
 }

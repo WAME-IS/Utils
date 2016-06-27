@@ -34,9 +34,9 @@ class Date
 	public static function toDateTime($date, $format = 'Y-m-d H:i:s')
 	{
 		if ($date == 'now') {
-			return new DateTime('now');
+			return new \DateTime('now');
 		} else {
-			return new DateTime(date($format, strtotime($date)));
+			return new \DateTime(date($format, strtotime($date)));
 		}
 	}
 	
