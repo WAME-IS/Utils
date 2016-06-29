@@ -25,15 +25,5 @@ class Arrays extends NArrays
 
         return $return;
     }
-    
-    /**
-	 * Generate hash for array
-     * 
-	 * @param array $array
-	 * @return string Hash
-	 */
-	public static function hash(array $array) {
-		return md5(serialize($array));
-	}
 
 }
