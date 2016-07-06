@@ -37,7 +37,7 @@ class Strings extends NStrings
 	 */
     static function dashesToCamelCase($string, $capitalizeFirstCharacter = false) 
     {
-        $str = str_replace(' ', '', ucwords(str_replace('-', ' ', self::webalize($string))));
+        $str = str_replace(' ', '', ucwords(str_replace('-', ' ', self::webalize($string, null, false))));
 
         if (!$capitalizeFirstCharacter) {
             $str[0] = strtolower($str[0]);
