@@ -32,7 +32,7 @@ class Exception
                 $showIn->addError($e->getFile() . " at line " . $e->getLine());
             }
         }
-        
+
         if ($showIn instanceof \Nette\Application\UI\Presenter) {
             $showIn->flashMessage($e->getMessage(), "warning");
             if (Debugger::isEnabled()) {
