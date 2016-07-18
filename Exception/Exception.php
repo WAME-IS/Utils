@@ -3,6 +3,8 @@
 namespace Wame\Utils;
 
 use Nette\Application\AbortException;
+use Nette\Application\UI\Form;
+use Nette\Application\UI\Presenter;
 use Tracy\Debugger;
 
 class Exception
@@ -26,14 +28,13 @@ class Exception
 
         Debugger::log($e);
 
-        if ($showIn instanceof \Nette\Application\UI\Form) {
+        if ($showIn instanceof Form) {
             $showIn->addError($e->getMessage());
             if (Debugger::isEnabled()) {
                 $showIn->addError($e->getFile() . " at line " . $e->getLine());
             }
         }
-
-        if ($showIn instanceof \Nette\Application\UI\Presenter) {
+        if ($showIn instanceof Presenter) {
             $showIn->flashMessage($e->getMessage(), "warning");
             if (Debugger::isEnabled()) {
                 $showIn->flashMessage($e->getFile() . " at line " . $e->getLine(), "warning");
