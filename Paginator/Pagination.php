@@ -62,8 +62,7 @@ class Pagination extends Control
 		
         $this->template->steps = $steps;
         $this->template->paginator = $paginator;
-        $this->template->setFile( dirname( __FILE__ ) . '/pagination.latte' );
-        $this->template->render();
+        $this->template->setFile( __DIR__ . '/pagination.latte' );
     }
 
     public function loadState( array $params )
