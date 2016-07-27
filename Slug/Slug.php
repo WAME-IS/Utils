@@ -2,8 +2,6 @@
 
 namespace Wame\Utils;
 
-use Nette\Utils\Strings;
-
 class Slug
 {
 	const TITLE = 0;
