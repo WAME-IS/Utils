@@ -3,7 +3,6 @@
 namespace Wame\Utils;
 
 use Nette\Reflection\ClassType;
-use Nette\Utils\Strings;
 use Nette\Utils\Strings as NStrings;
 
 class Strings extends NStrings
