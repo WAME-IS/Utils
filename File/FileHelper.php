@@ -3,6 +3,7 @@
 namespace Wame\Utils\File;
 
 use Nette\Utils\Strings;
+use Nette\Utils\FileSystem;
 
 class FileHelper
 {
