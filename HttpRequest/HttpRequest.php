@@ -16,19 +16,34 @@ class HttpRequest
 		$this->request = $router->match($request);
 	}
 	
-	
+	/**
+     * Get request
+     * 
+     * @return type
+     */
 	public function getRequest()
 	{
 		return $this->request;
 	}
 	
 	
+    /**
+     * Get parameter
+     * 
+     * @param string $name  parameter name
+     * @return string
+     */
 	public function getParameter($name)
 	{
 		return $this->getRequest()->getParameter($name);
 	}
 	
-	
+    
+	/**
+     * Get parameters
+     * 
+     * @return array
+     */
 	public function getParameters()
 	{
 		return $this->getRequest()->getParameters();
