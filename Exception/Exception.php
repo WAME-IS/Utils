@@ -18,7 +18,7 @@ class Exception
      * @param mixed $showIn
      * @throws Exception
      */
-    public static function handleException(Exception $e, $showIn = null)
+    public static function handleException(\Exception $e, $showIn = null)
     {
         if ($e instanceof AbortException) {
             throw $e;
