@@ -13,9 +13,9 @@ use Nette\Object;
  */
 class NestedSetTreeBuilder extends Object implements ITreeBuilder
 {
+
     /** @var int Where to start converting of tree */
     private $fromId = 1;
-    
     private $leftId = null;
 
     /**
@@ -26,12 +26,16 @@ class NestedSetTreeBuilder extends Object implements ITreeBuilder
      */
     public function buildTree($items)
     {
-        
-        $li = null;
-        foreach ($items as $item) {
-            if ($item->id == $this->fromId) {
-                $li = $item->getLeft();
-                break;
+
+        if ($this->leftId) {
+            $li = $this->leftId;
+        } else {
+            $li = null;
+            foreach ($items as $item) {
+                if ($item->getId() == $this->fromId) {
+                    $li = $item->getLeft();
+                    break;
+                }
             }
         }
 
@@ -69,7 +73,7 @@ class NestedSetTreeBuilder extends Object implements ITreeBuilder
             return new TreeNode($node, $childNodes);
         }
     }
-    
+
     function getFromId()
     {
         return $this->fromId;
@@ -79,7 +83,7 @@ class NestedSetTreeBuilder extends Object implements ITreeBuilder
     {
         $this->fromId = $fromId;
     }
-    
+
     public function setFrom($item)
     {
         $this->fromId = $item->getId();
