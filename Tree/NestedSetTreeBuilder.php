@@ -66,7 +66,7 @@ class NestedSetTreeBuilder extends Object implements ITreeBuilder
                     $childNodes[] = $childNode;
                     $nextNodeLi = $childNode->getRight() + 1;
                 } else {
-                    throw new Exception('Tree is in incorrect format!');
+                    $nextNodeLi = $node->getRight() + 1;
                 }
             }
 
