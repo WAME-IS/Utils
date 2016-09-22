@@ -25,5 +25,16 @@ class Arrays extends NArrays
 
         return $return;
     }
+    
+    static public function getPairs($array, $key, $value = null)
+    {
+        $pairs = [];
+        
+        foreach($array as $a) {
+            $pairs[$a->$key] = $value ? $a->$value : $a;
+        }
+        
+        return $pairs;
+    }
 
 }
