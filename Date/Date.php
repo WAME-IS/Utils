@@ -42,11 +42,11 @@ class Date
 		}
 	}
     
-    
-    // source: https://github.com/fprochazka/nette-components/blob/master/TimeAgoInWords/Helpers.php
-    
+
     /**
-	 * Czech helper time ago in words.
+	 * Czech helper time ago in words
+     * https://github.com/fprochazka/nette-components/blob/master/TimeAgoInWords/Helpers.php
+     * 
 	 * @param  int
 	 * @return string
 	 */
@@ -66,32 +66,32 @@ class Date
         
 		if ($delta < 0) {
 			$delta = round(abs($delta) / 60);
-			if ($delta == 0) return 'za okamžik';
-			if ($delta == 1) return 'za minutu';
-			if ($delta < 45) return 'za ' . $delta . ' ' . self::plural($delta, 'minuta', 'minuty', 'minut');
-			if ($delta < 90) return 'za hodinu';
-			if ($delta < 1440) return 'za ' . round($delta / 60) . ' ' . self::plural(round($delta / 60), 'hodina', 'hodiny', 'hodin');
-			if ($delta < 2880) return 'zítra';
-			if ($delta < 43200) return 'za ' . round($delta / 1440) . ' ' . self::plural(round($delta / 1440), 'den', 'dny', 'dní');
-			if ($delta < 86400) return 'za měsíc';
-			if ($delta < 525960) return 'za ' . round($delta / 43200) . ' ' . self::plural(round($delta / 43200), 'měsíc', 'měsíce', 'měsíců');
-			if ($delta < 1051920) return 'za rok';
-			return 'za ' . round($delta / 525960) . ' ' . self::plural(round($delta / 525960), 'rok', 'roky', 'let');
+			if ($delta == 0) { return _('in a moment'); }
+			if ($delta == 1) { return _('per minute'); }
+			if ($delta < 45) { return sprintf(_('per %s %s'), $delta, self::plural($delta, _('minute'), _('minutes'), _('minutes'))); }
+			if ($delta < 90) { return _('per hour'); }
+			if ($delta < 1440) { return sprintf(_('per %s %s'), round($delta / 60), self::plural(round($delta / 60), _('hour'), _('hours'), _('hours'))); }
+			if ($delta < 2880) { return _('tomorrow'); }
+			if ($delta < 43200) { return sprintf(_('per %s %s'), round($delta / 1440), self::plural(round($delta / 1440), _('day'), _('days'), _('days'))); }
+			if ($delta < 86400) { return _('per month'); }
+			if ($delta < 525960) { return sprintf(_('per %s %s'), round($delta / 43200), self::plural(round($delta / 43200), _('month'), _('months'), _('months'))); }
+			if ($delta < 1051920) { return _('per year'); }
+			return sprintf(_('per %s %s'), round($delta / 525960), self::plural(round($delta / 525960), _('year'), _('years'), _('years')));
 		}
         
 		$delta = round($delta / 60);
-		if ($delta == 0) return 'před okamžikem';
-		if ($delta == 1) return 'před minutou';
-		if ($delta < 45) return "před $delta minutami";
-		if ($delta < 90) return 'před hodinou';
-		if ($delta < 1440) return 'před ' . round($delta / 60) . ' hodinami';
-		if ($delta < 2880) return 'včera';
-		if ($delta < 43200) return 'před ' . round($delta / 1440) . ' dny';
-		if ($delta < 86400) return 'před měsícem';
-		if ($delta < 525960) return 'před ' . round($delta / 43200) . ' měsíci';
-		if ($delta < 1051920) return 'před rokem';
+        if ($delta == 0) { return _('a moment ago'); }
+		if ($delta == 1) { return _('minute ago'); }
+		if ($delta < 45) { return sprintf(_('%s minutes ago'), $delta); }
+		if ($delta < 90) { return _('před hodinou'); }
+		if ($delta < 1440) { return sprintf(_('%s hours ago'), round($delta / 60)); }
+		if ($delta < 2880) { return _('yesterday'); }
+		if ($delta < 43200) { return sprintf(_('%s days ago'), round($delta / 1440)); }
+		if ($delta < 86400) { return _('a month ago'); }
+		if ($delta < 525960) { return sprintf(_('%s months ago'), round($delta / 43200)); }
+		if ($delta < 1051920) { return _('a year ago'); }
         
-		return 'před ' . round($delta / 525960) . ' lety';
+		return sprintf(_('%s years ago'), round($delta / 525960));
 	}
     
     
