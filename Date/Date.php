@@ -6,6 +6,10 @@ use DateTime;
 
 class Date
 {
+    /** @var string */
+    const NOW = 'now';
+    
+    
 	/**
 	 * Format DateTime to string
 	 * 
@@ -15,7 +19,7 @@ class Date
 	 */
 	public static function toString($date, $format = 'Y-m-d H:i:s')
 	{
-		if ($date == 'now') {
+		if ($date == self::NOW) {
 			$return = \date($format);
 		} else if ($date) {
             $return = $date->format($format);
@@ -35,8 +39,8 @@ class Date
 	 */
 	public static function toDateTime($date, $format = 'Y-m-d H:i:s')
 	{
-		if ($date == 'now') {
-			return new \DateTime('now');
+		if ($date == self::NOW) {
+			return new \DateTime(self::NOW);
 		} else {
 			return new \DateTime(date($format, strtotime($date)));
 		}
@@ -83,7 +87,7 @@ class Date
         if ($delta == 0) { return _('a moment ago'); }
 		if ($delta == 1) { return _('minute ago'); }
 		if ($delta < 45) { return sprintf(_('%s minutes ago'), $delta); }
-		if ($delta < 90) { return _('před hodinou'); }
+		if ($delta < 90) { return _('hour ago'); }
 		if ($delta < 1440) { return sprintf(_('%s hours ago'), round($delta / 60)); }
 		if ($delta < 2880) { return _('yesterday'); }
 		if ($delta < 43200) { return sprintf(_('%s days ago'), round($delta / 1440)); }
