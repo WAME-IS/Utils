@@ -185,6 +185,22 @@ class FileHelper
     }
 
 
+    public static function findFolders($dir)
+    {
+        $return = [];
+
+        foreach (new \DirectoryIterator($dir) as $file) {
+            if ($file->isDot()) continue;
+
+            if ($file->isDir()) {
+                $return[$file->getFilename()] = $file;
+            }
+        }
+
+        return $return;
+    }
+
+
     /**
      * Move DIR with files
      *
@@ -213,6 +229,27 @@ class FileHelper
                 copy($pathFrom, $pathTo);
             }
         }
+    }
+
+
+    /**
+     * Get dirname parents
+     * http://php.net/manual/en/function.dirname.php#118477
+     *
+     * PHP 7 use dirname($path, $level)
+     * PHP 5.6 dirname(dirname($path))
+     * 
+     * @param string $path
+     * @param int $levels
+     * @return string
+     */
+    public static function dirnameWithLevels($path, $levels = 1)
+    {
+        while ($levels--) {
+            $path = dirname($path);
+        }
+
+        return $path;
     }
 
 }
