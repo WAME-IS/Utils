@@ -96,7 +96,7 @@ class FileHelper
      */
     public static function getFileSize($file, $human = false, $decimals = 2)
     {
-        $bytes = self::getFileInfo($file)->getSize();
+        $bytes = $file->getSize();
         
         if(!$human) {
             return $bytes;
