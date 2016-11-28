@@ -85,6 +85,27 @@ class FileHelper
 	{
 		return $file->getContentType();
 	}
+    
+    /**
+     * Get file size
+     * 
+     * @param File $file    file
+     * @param bool $human   human
+     * @param int $decimals decimals
+     * @return int|string
+     */
+    public static function getFileSize($file, $human = false, $decimals = 2)
+    {
+        $bytes = self::getFileInfo($file)->getSize();
+        
+        if(!$human) {
+            return $bytes;
+        } else {
+            $sz = 'BKMGTP';
+            $factor = floor((strlen($bytes) - 1) / 3);
+            return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor];
+        }
+    }
 
 
     /**
