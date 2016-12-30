@@ -1,2 +1,7 @@
 services:
-	- Wame\Utils\HttpRequest
+    - Wame\Utils\HttpRequest
+
+    # Commands
+    clearCacheCommand:
+            class: Wame\Core\Commands\ClearCacheCommand
+            tags: [kdyby.console.command]
