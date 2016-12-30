@@ -4,6 +4,7 @@ namespace Wame\Core\Commands;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Wame\Utils\File\FileHelper;
 
@@ -14,7 +15,8 @@ class ClearCacheCommand extends Command
     {
         $this
             ->setName('nette:clear-cache:all')
-            ->setDescription('Clear Nette cache.');
+            ->setDescription('Clear Nette cache.')
+            ->addOption('cache', null, InputOption::VALUE_OPTIONAL, 'Clear cache folder');
     }
 
     /** {@inheritdoc} */
