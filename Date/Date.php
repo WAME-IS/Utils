@@ -33,7 +33,7 @@ class Date
 	/**
 	 * Format string date to DateTime for Doctrine entity
 	 * 
-	 * @param DateTime $date
+	 * @param string $date
 	 * @param string $format
 	 * @return DateTime
 	 */
