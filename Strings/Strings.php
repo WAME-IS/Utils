@@ -67,6 +67,17 @@ class Strings extends NStrings
         return $className;
     }
 
+    /**
+     * Get class path
+     *
+     * @param $class
+     * @return string
+     */
+    public static function getClassPath($class)
+    {
+        return dirname((new \ReflectionClass($class))->getFileName());
+    }
+
     static function parseTemplate($template, $parameters)
     {
         return Strings::replace($template, '!\{\{(\w+)\}\}!', function($m) use($parameters) {
