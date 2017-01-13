@@ -2,6 +2,11 @@
 
 namespace Wame\Utils;
 
+/**
+ * Class Slug
+ * @package Wame\Utils
+ * @deprecated
+ */
 class Slug
 {
 	const TITLE = 0;

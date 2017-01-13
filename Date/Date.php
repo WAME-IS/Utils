@@ -4,6 +4,11 @@ namespace Wame\Utils;
 
 use DateTime;
 
+/**
+ * Date tools library
+ *
+ * @package Wame\Utils
+ */
 class Date
 {
     /** @var string */

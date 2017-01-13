@@ -5,6 +5,11 @@ namespace Wame\Utils;
 use Nette\Application\UI\Control;
 use Nette\Utils\Paginator;
 
+/**
+ * Class Pagination
+ * @package Wame\Utils
+ * @deprecated
+ */
 class Pagination extends Control
 {
 

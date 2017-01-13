@@ -4,6 +4,11 @@ namespace Wame\Utils;
 
 use Nette\Utils\Arrays as NArrays;
 
+/**
+ * Array tools library
+ *
+ * @package Wame\Utils
+ */
 class Arrays extends NArrays
 {	
 	/**
@@ -25,7 +30,15 @@ class Arrays extends NArrays
 
         return $return;
     }
-    
+
+    /**
+     * Get pairs
+     *
+     * @param array $array array
+     * @param string $key key
+     * @param string $value value
+     * @return array
+     */
     static public function getPairs($array, $key, $value = null)
     {
         $pairs = [];
@@ -36,17 +49,20 @@ class Arrays extends NArrays
         
         return $pairs;
     }
-    
+
     /**
-     * Convert multiarray to nice-looking string
-     * 
+     * Convert multi-array to nice-looking string
+     *
      * example:
      * from: [color => [blue, red]], to: "color-blue,red"
-     * 
-     * @param type $array   array
-     * @return type
+     *
+     * @param array $array array
+     * @param string $s1 separator1
+     * @param string $s2 separator2
+     * @param string $s3 separator3
+     * @return string
      */
-    static public function encodeMultiArray(array $array, $s1 = ":", $s2 = ",", $s3 = ";")
+    static public function encodeMultiArray(array $array, $s1 = ":", $s2 = ",", $s3 = ";") // TODO: refactor to ...separators
     {
         $p = [];
         
@@ -58,15 +74,20 @@ class Arrays extends NArrays
         
         return implode($s3, $p);
     }
-    
+
     /**
-     * 
-     * @param type $string
-     * @param type $s1
-     * @param type $s2
-     * @param type $s3
+     * Decode multi-array from string
+     *
+     * example:
+     * from: "color-blue,red", to: [color => [blue, red]]
+     *
+     * @param string $string string
+     * @param string $s1 separator1
+     * @param string $s2 separator2
+     * @param string $s3 separator3
+     * @return array
      */
-    static public function decodeMultiArray($string, $s1 = ":", $s2 = ",", $s3 = ";")
+    static public function decodeMultiArray($string, $s1 = ":", $s2 = ",", $s3 = ";") // TODO: refactor to ...separators
     {
         $values = explode($s3, $string);
 

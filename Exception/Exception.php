@@ -9,16 +9,15 @@ use Tracy\Debugger;
 
 class Exception
 {
-
     /**
      * Method used to handle Exceptions. Parameter $showIn can be used to display
      * message in given object. Supported "show in" types are:
-     * - Nette\Application\UI\Form
+     * - \Nette\Application\UI\Form
      * - \Nette\Application\UI\Presenter
-     * 
-     * @param Exception $e
+     *
+     * @param \Exception|Exception $e
      * @param mixed $showIn
-     * @throws Exception
+     * @throws AbortException
      */
     public static function handleException(\Exception $e, $showIn = null)
     {
@@ -41,4 +40,5 @@ class Exception
             }
         }
     }
+
 }

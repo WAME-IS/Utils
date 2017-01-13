@@ -109,7 +109,7 @@ class FileHelper
 
 
     /**
-     * Empty dir
+     * Empty directory
      *
      * @param string|array $dirPaths
      * @param boolean $deleteDir delete main folder
@@ -205,7 +205,12 @@ class FileHelper
         return $files;
     }
 
-
+    /**
+     * Find folders
+     *
+     * @param $dir
+     * @return array
+     */
     public static function findFolders($dir)
     {
         $return = [];
@@ -223,7 +228,7 @@ class FileHelper
 
 
     /**
-     * Move DIR with files
+     * Move directory with files
      *
      * @param string $from
      * @param string $to

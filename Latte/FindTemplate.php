@@ -6,7 +6,8 @@ namespace Wame\Utils\Latte;
 class FindTemplate
 {
 	const DEFAULT_TEMPLATE = 'default.latte';
-	
+
+
 	/** @var string */
 	private $dir;
 	

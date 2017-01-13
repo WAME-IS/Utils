@@ -3,9 +3,7 @@
 namespace Wame\Utils;
 
 /**
- * Class Validators
- *
- * Validator functions.
+ * Validation utilities
  *
  * @package Wame\Generator
  */

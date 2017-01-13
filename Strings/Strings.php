@@ -5,9 +5,13 @@ namespace Wame\Utils;
 use Nette\Reflection\ClassType;
 use Nette\Utils\Strings as NStrings;
 
+/**
+ * String tools library
+ *
+ * @package Wame\Utils
+ */
 class Strings extends NStrings
 {
-
     /**
      * Truncate string
      * 
@@ -32,11 +36,11 @@ class Strings extends NStrings
     /**
      * Convert string to CamelCase
      * 
-     * @param string $string
-     * @param boolean $capitalizeFirstCharacter
+     * @param string $string string
+     * @param bool $capitalizeFirstCharacter capitalize first letter
      * @return string
      */
-    static function dashesToCamelCase($string, $capitalizeFirstCharacter = false)
+    static function dashesToCamelCase(string $string, bool $capitalizeFirstCharacter = false)
     {
         $str = str_replace(' ', '', ucwords(str_replace('-', ' ', self::webalize($string, null, false))));
 
@@ -70,7 +74,7 @@ class Strings extends NStrings
     /**
      * Get class path
      *
-     * @param $class
+     * @param mixed $class class
      * @return string
      */
     public static function getClassPath($class)
@@ -78,14 +82,27 @@ class Strings extends NStrings
         return dirname((new \ReflectionClass($class))->getFileName());
     }
 
-    static function parseTemplate($template, $parameters)
+    /**
+     * Parse template
+     *
+     * @param string $template template
+     * @param array $parameters parameters
+     * @return string
+     */
+    static function parseTemplate(string $template, array $parameters)
     {
         return Strings::replace($template, '!\{\{(\w+)\}\}!', function($m) use($parameters) {
                 return $parameters[$m[1]];
             });
     }
 
-    static function plural($string)
+    /**
+     * Get plural of string
+     *
+     * @param string $string string
+     * @return string
+     */
+    static function plural(string $string)
     {
         $last_letter = strtolower($string[strlen($string) - 1]);
         switch ($last_letter) {
@@ -97,4 +114,5 @@ class Strings extends NStrings
                 return $string . 's';
         }
     }
+
 }
