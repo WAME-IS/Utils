@@ -3,5 +3,5 @@ services:
 
     # Commands
     clearCacheCommand:
-            class: Wame\Core\Commands\ClearCacheCommand
+            class: Wame\Utils\Cache\Commands\ClearCacheCommand
             tags: [kdyby.console.command]
