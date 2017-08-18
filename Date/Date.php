@@ -4,6 +4,7 @@ namespace Wame\Utils;
 
 use DateTime;
 
+
 /**
  * Date tools library
  *
@@ -13,7 +14,14 @@ class Date
 {
     /** @var string */
     const NOW = 'now';
-    
+
+
+    use TYear;
+    use TMonth;
+    use TMonthShort;
+    use TDay;
+    use TDayShort;
+
     
 	/**
 	 * Format DateTime to string
@@ -34,6 +42,7 @@ class Date
          
         return $return;
 	}
+
 	
 	/**
 	 * Format string date to DateTime for Doctrine entity
@@ -62,7 +71,7 @@ class Date
 	public static function timeAgoInWords($time)
 	{
 		if (!$time) {
-			return FALSE;
+			return false;
 		} elseif (is_numeric($time)) {
 			$time = (int) $time;
 		} elseif ($time instanceof DateTime) {
@@ -113,7 +122,8 @@ class Date
 	private static function plural($n)
 	{
 		$args = func_get_args();
+
 		return $args[($n == 1) ? 1 : (($n >= 2 && $n <= 4) ? 2 : 3)];
 	}
-	
+
 }
