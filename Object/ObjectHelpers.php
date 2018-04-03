@@ -3,7 +3,7 @@
 namespace Wame\Utils;
 
 
-class Object
+class ObjectHelpers
 {
     /**
      * Get class namespace
