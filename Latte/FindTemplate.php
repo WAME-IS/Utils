@@ -18,7 +18,7 @@ class FindTemplate
 	private $customTemplate;
 	
 	
-	public function __construct($dir, $templateFile = 'null', $customTemplate = null) 
+	public function __construct($dir, $templateFile = null, $customTemplate = null)
 	{
 		$this->dir = $dir;
 		$this->templateFile = $templateFile;
