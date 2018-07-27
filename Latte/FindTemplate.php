@@ -49,7 +49,7 @@ class FindTemplate
 		foreach ($dirs as $dir) {
 			if (is_file($dir)) { $file = $dir; break; }
 		}
-		
+
 		return $file;
 	}
 
